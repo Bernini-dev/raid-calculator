@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+  --color-bernini: #BC409C
+}
+
+body {
+  background: #1A1135;
+}
