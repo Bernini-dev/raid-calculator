@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, defineEmits, type Ref } from "vue";
+import { calculateRAID } from "@/tools/calculator";
+import type { RAIDResult } from "../../tools/calculator";
 
 const RAIDTYPES = [
   "RAID 0 (Stripe Set)",
@@ -14,12 +16,22 @@ const RAIDTYPES = [
   "RAID 60 (6+0)",
 ];
 
+const $emit = defineEmits(["updateResult"]);
+
 const raidType = ref("");
 const diskCount = ref(0);
 const diskSize = ref(0);
+const result: Ref<RAIDResult> = ref({
+  raidType: "",
+  totalSize: 0,
+  speedGain: 0,
+  faultTolerance: "",
+  error: "",
+});
 
 const calculateRaid = () => {
-  console.log(raidType.value, diskCount.value, diskSize.value);
+  result.value = calculateRAID(raidType.value, diskCount.value, diskSize.value);
+  $emit("updateResult", result.value);
 };
 </script>
 
