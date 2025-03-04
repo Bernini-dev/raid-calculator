@@ -61,10 +61,10 @@ function calculateRAID1(diskSize: number, diskCount: number): RAIDResult {
 
 function calculateRAID1E(diskSize: number, diskCount: number): RAIDResult {
   return {
-    totalSize: diskSize,
-    speedGain: 1,
+    totalSize: diskSize * (diskCount - 1),
+    speedGain: 1, // TODO: Check this
     faultTolerance: "1 disk",
-    error: "",
+    error: diskCount < 3 ? "Minimum 3 disks required" : "",
   };
 }
 
@@ -88,19 +88,19 @@ function calculateRAID50(diskSize: number, diskCount: number): RAIDResult {
 
 function calculateRAID5E(diskSize: number, diskCount: number): RAIDResult {
   return {
-    totalSize: diskSize * (diskCount - 2),
-    speedGain: diskCount - 2,
+    totalSize: diskSize * (diskCount - 1),
+    speedGain: diskCount - 2, // TODO: Check this
     faultTolerance: "1 disk",
-    error: "",
+    error: diskCount < 3 ? "Minimum 3 disks required" : "",
   };
 }
 
 function calculateRAID5EE(diskSize: number, diskCount: number): RAIDResult {
   return {
-    totalSize: diskSize * (diskCount - 2),
-    speedGain: diskCount - 2,
+    totalSize: diskSize * (diskCount - 1),
+    speedGain: diskCount - 2, // TODO: Check this
     faultTolerance: "1 disk",
-    error: "",
+    error: diskCount < 4 ? "Minimum 4 disks required" : "",
   };
 }
 
