@@ -5,7 +5,6 @@ const { totalSize, speedGain, faultTolerance } = defineProps([
   "totalSize",
   "speedGain",
   "faultTolerance",
-  "error",
 ]);
 </script>
 
@@ -16,10 +15,10 @@ const { totalSize, speedGain, faultTolerance } = defineProps([
         <th class="p-2">Total Size</th>
         <td class="p-2">{{ totalSize }}</td>
       </tr>
-      <tr>
+      <!--<tr>
         <th class="p-2">Speed Gain</th>
         <td class="p-2">{{ speedGain }}</td>
-      </tr>
+      </tr>-->
       <tr>
         <th class="p-2">Fault Tolerance</th>
         <td class="p-2">{{ faultTolerance }}</td>
