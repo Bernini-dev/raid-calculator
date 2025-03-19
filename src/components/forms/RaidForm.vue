@@ -41,31 +41,44 @@ const calculateRaid = () => {
     class="flex flex-col flex-wrap justify-center content-center gap-4 p-4"
     @submit.prevent="calculateRaid"
   >
-    <select name="" id="raidType" class="p-3 text-white rounded-lg font-bold" required v-model="raidType">
+    <select
+      name=""
+      id="raidType"
+      class="p-3 text-white rounded-lg font-bold bg-[rgba(177,177,177,0.1)]"
+      required
+      v-model="raidType"
+    >
       <option value="" disabled selected>Select RAID Type</option>
       <option v-for="raid in RAIDTYPES" :key="raid" :value="raid">
         {{ raid }}
       </option>
     </select>
     <div class="flex flex-wrap gap-4">
-      <input
-        type="number"
-        name="diskCount"
-        id="diskCount"
-        class="p-3 text-white rounded-lg font-bold"
-        placeholder="Disk Count"
-        required
-        v-model="diskCount"
-      />
-      <input
-        type="number"
-        name="diskSize"
-        id="diskSize"
-        class="p-3 text-white rounded-lg font-bold"
-        placeholder="Disk Size"
-        required
-        v-model="diskSize"
-      />
+      <div class="flex flex-col gap-2">
+        <label for="diskCount" class="text-white font-bold">Disk Count</label>
+        <input
+          type="number"
+          name="diskCount"
+          id="diskCount"
+          class="p-3 text-white rounded-lg font-bold border-0 bg-[rgba(177,177,177,0.1)]"
+          placeholder="Disk Count"
+          required
+          v-model="diskCount"
+        />
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="diskSize" class="text-white font-bold">Disk Size (Gb)</label>
+        <input
+          type="number"
+          name="diskSize"
+          id="diskSize"
+          class="p-3 text-white rounded-lg font-bold border-0 bg-[rgba(177,177,177,0.1)]"
+          placeholder="Disk Size"
+          required
+          v-model="diskSize"
+        />
+      </div>
     </div>
     <button
       type="submit"
