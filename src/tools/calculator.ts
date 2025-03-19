@@ -10,10 +10,6 @@ export function calculateRAID(
   diskSize: number,
   diskCount: number
 ): RAIDResult {
-  console.info(
-    `Calculating RAID ${raidType} with ${diskCount} disks of size ${diskSize} GB`
-  );
-  console.info(calculateRAID1(diskSize, diskCount));
   switch (raidType) {
     case "RAID 0 (Stripe Set)":
       return calculateRAID0(diskSize, diskCount);
