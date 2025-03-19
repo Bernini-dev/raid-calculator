@@ -30,7 +30,7 @@ const result: Ref<RAIDResult> = ref({
 });
 
 const calculateRaid = () => {
-  result.value = calculateRAID(raidType.value, diskCount.value, diskSize.value);
+  result.value = calculateRAID(raidType.value, diskSize.value, diskCount.value);
   $emit("updateResult", result.value);
 };
 </script>
@@ -68,7 +68,9 @@ const calculateRaid = () => {
       </div>
 
       <div class="flex flex-col gap-2">
-        <label for="diskSize" class="text-white font-bold">Disk Size (Gb)</label>
+        <label for="diskSize" class="text-white font-bold"
+          >Disk Size (Gb)</label
+        >
         <input
           type="number"
           name="diskSize"

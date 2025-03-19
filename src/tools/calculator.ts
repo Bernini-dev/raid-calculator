@@ -10,6 +10,10 @@ export function calculateRAID(
   diskSize: number,
   diskCount: number
 ): RAIDResult {
+  console.info(
+    `Calculating RAID ${raidType} with ${diskCount} disks of size ${diskSize} GB`
+  );
+  console.info(calculateRAID1(diskSize, diskCount));
   switch (raidType) {
     case "RAID 0 (Stripe Set)":
       return calculateRAID0(diskSize, diskCount);
@@ -55,7 +59,7 @@ function calculateRAID1(diskSize: number, diskCount: number): RAIDResult {
     totalSize: diskSize * (diskCount / 2),
     speedGain: diskCount, // TODO: Check this
     faultTolerance: "1 disk",
-    error: diskCount % 2 !== 0 ? "Even number of disks required" : "",
+    error: diskCount % 2 > 0 ? "Even number of disks required" : "",
   };
 }
 
@@ -109,7 +113,7 @@ function calculateRAID10(diskSize: number, diskCount: number): RAIDResult {
     totalSize: diskSize * (diskCount / 2),
     speedGain: diskCount / 2, // TODO: Check this
     faultTolerance: "1 disk per RAID 1",
-    error: diskCount % 2 !== 0 ? "Even number of disks required" : "",
+    error: diskCount % 2 > 0 ? "Even number of disks required" : "",
   };
 }
 
