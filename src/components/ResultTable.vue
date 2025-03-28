@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, defineProps } from "vue";
 
-const { totalSize, speedGain, faultTolerance } = defineProps([
+const { totalSize, faultTolerance } = defineProps([
   "totalSize",
   "speedGain",
   "faultTolerance",
