@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, defineEmits, type Ref } from "vue";
+import { ref, type Ref } from "vue";
 import { calculateRAID } from "@/tools/calculator";
 import type { RAIDResult } from "../../tools/calculator";
 
@@ -44,7 +44,7 @@ const calculateRaid = () => {
     <select
       name=""
       id="raidType"
-      class="p-3 text-white rounded-lg font-bold bg-[rgba(177,177,177,0.1)]"
+      class="p-3 text-black dark:text-white rounded-lg font-bold bg-[rgba(177,177,177,0.1)]"
       required
       v-model="raidType"
     >
